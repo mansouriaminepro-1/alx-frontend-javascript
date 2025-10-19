@@ -18,12 +18,14 @@ const teacher1 : Teacher = {
 
 console.log(teacher1);
 
-// Interface directors that inherits from teacher
-interface Directors extends Teacher {
-    numberOfReports : number ;
+// Directors interface extends Teacher
+
+interface Director extends Teacher {
+  numberOfReports: number;
 }
+
 //example
-const director1: Directors = {
+const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
@@ -38,11 +40,10 @@ interface printTeacherFunction {
 }
 
 //function printTeacher that displays first letter of firstname and full lastname
-const printTeacher : printTeacherFunction = (FirstName : string , lastName : string) : string =>
- {
-  const firstInitial = FirstName.charAt(0).toUpperCase() ;
-  return '$firstInitial, $lastName';
- };
+ function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
+ const firstName = FirstName.charAt(0).toUpperCase() ;
+  return `${firstName}. ${lastName}``;
+}
 
  //interface for the class
  interface StudentClassInterface {
@@ -56,9 +57,10 @@ const printTeacher : printTeacherFunction = (FirstName : string , lastName : str
 }
 
 //class that implements the interface of the class
-class StudentClass implements StudentClassInterface {
-  private firstName : string ;
-  private lastName : string ;
+class StudentClass {
+  // properties
+  firstName: string;
+  lastName: string;
 
 // constructor
   constructor (firstName : string , lastName : string)
@@ -68,7 +70,7 @@ class StudentClass implements StudentClassInterface {
   }
 // class methode 1
   workOnHomework(): string {
-    return 'currently working';
+    return 'Currently working';
   }
 
   //class methode2
