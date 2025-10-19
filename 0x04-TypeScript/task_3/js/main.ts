@@ -10,7 +10,6 @@ const row: RowElement = {
 
 const newRowID: RowID = CRUD.insertRow(row);
 console.log(`Inserted row id: ${newRowID}`);
-
-CRUD.updateRow(newRowID, { ...row, age: 23 });
-
+updatedRow: RowElement = CRUD.updateRow(newRowID, { ...row, age: 23 });
+CRUD.updateRow(newRowID, updatedRow)"
 CRUD.deleteRow(newRowID);
